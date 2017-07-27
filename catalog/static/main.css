@@ -1,0 +1,15 @@
+body{
+    text-decoration: none;
+    padding: 10px 5% 10px 5%;
+}
+
+li {
+    list-style: none;
+}
+
+#user_link {
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: space-between;
+    height: 50px;
+}

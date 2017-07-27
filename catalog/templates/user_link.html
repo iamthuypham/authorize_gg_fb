@@ -1,0 +1,23 @@
+<div id="user_link">
+    <div id="nav">
+        <a href="{{url_for('showAllCatalogs')}}">Home</a>   
+    </div>
+    <div id="authorize">
+        {% if 'username' not in session %}
+                <a href="{{url_for('showLogin')}}">Log in</a>
+            {% else %}
+                <a href="{{url_for('disconnect')}}">Log out</a>
+        {% endif %}
+    </div>
+</div>
+<div id="message">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages: %}
+                    <li class="alert alert-info" role="alert">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</div>

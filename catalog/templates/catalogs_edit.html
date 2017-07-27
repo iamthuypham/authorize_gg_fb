@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    {% include "header.html" %}
+<body>
+    {% include "user_link.html" %}
+    <h1>Edit Catalog</h1>
+    <div>
+        <h3>{{catalog.name}}</h3>
+    </div>
+    <form class="form-inline" method='POST' enctype='multipart/form-data' action='{{url_for('editCatalog', catalog_id = catalog.id)}}'>
+        <h2>New Catalog Name:</h2>
+        <input class="form-control" name='editCatalogName' type='text' placeholder = '{{catalog.name}}'/>
+        <input class='btn btn-warning' type='submit' value='Rename'>
+    </form>
+    <a class='btn btn-default' href='{{url_for('showAllCatalogs')}}'>Cancel</a>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    {% include "header.html" %}
+<body>
+    {% include "user_link.html" %}
+    <h1>Delete {{catalog.name}}?</h1>
+    <form method='POST' enctype='multipart/form-data' action='{{url_for('deleteCatalog', catalog_id = catalog.id)}}'>
+        <input class='btn btn-warning' type='submit' value='Yes, delete please'>
+    </form>
+    <a class='btn btn-default' href='{{url_for('showAllCatalogs')}}'>Cancel</a>
+</body>
+</html>
