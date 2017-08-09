@@ -6,47 +6,51 @@ from sqlalchemy import create_engine
 
 Base = declarative_base()
 
+
 class User(Base):
-    __tablename__='user'
+    __tablename__ = 'user'
     username = Column(
-        String(250), nullable = False
+        String(250), nullable=False
     )
     id = Column(
-        Integer, primary_key = True
+        Integer, primary_key=True
     )
     email = Column(
-        String(250), nullable = False
+        String(250), nullable=False
     )
     picture = Column(
-        String(250), nullable = False
+        String(250), nullable=False
     )
-    
+
+
 class Catalog(Base):
     __tablename__ = 'catalog'
     name = Column(
-        String(250), nullable = False
+        String(250), nullable=False
     )
     id = Column(
-        Integer, primary_key = True
+        Integer, primary_key=True
     )
     user_id = Column(
         Integer, ForeignKey('user.id')
     )
     user = relationship(User)
+
     @property
     def serialize(self):
         return {
             'name': self.name,
-            'id':self.id
+            'id': self.id
         }
 
+
 class Item(Base):
-    __tablename__= 'item'
+    __tablename__ = 'item'
     name = Column(
-        String(250), nullable = False
+        String(250), nullable=False
     )
     id = Column(
-        Integer, primary_key = True
+        Integer, primary_key=True
     )
     catalog_id = Column(
         Integer, ForeignKey('catalog.id')
@@ -54,7 +58,7 @@ class Item(Base):
     # picture = Column(
     #     String(250), nullable = True
     # )
-    description = Column(String(250), nullable = True)
+    description = Column(String(250), nullable=True)
     # price = Column(String(8), nullable = True)
     user_id = Column(
         Integer, ForeignKey('user.id')

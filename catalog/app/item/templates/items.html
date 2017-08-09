@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    {% include "header.html" %}
+<body>
+    {% include "user_link.html" %}
+    <a class='btn btn-success' href='{{url_for('item.createNewItem', catalog_id = catalog.id)}}'>Create a new item</a>
+    <div>
+        {% for item in items: %}
+            <h3><a href='{{url_for('item.showItem', catalog_id = catalog.id, item_id = item.id)}}'>{{item.name}}</a></h3>
+            <a class='btn btn-default' href='{{url_for('item.editItem', catalog_id = catalog.id, item_id = item.id)}}'>Edit</a>
+            <a class='btn btn-default' href='{{url_for('item.deleteItem', catalog_id = catalog.id, item_id = item.id)}}'>Delete</a>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,12 +1,12 @@
 <div id="user_link">
     <div id="nav">
-        <a href="{{url_for('showAllCatalogs')}}">Home</a>   
+        <a href="{{url_for('catalog.showAllCatalogs')}}">Home</a>   
     </div>
     <div id="authorize">
         {% if 'username' not in session %}
-                <a href="{{url_for('showLogin')}}">Log in</a>
+                <a href="{{url_for('user.showLogin')}}">Log in</a>
             {% else %}
-                <a href="{{url_for('disconnect')}}">Log out</a>
+                <a href="{{url_for('user.disconnect')}}">Log out</a>
         {% endif %}
     </div>
 </div>

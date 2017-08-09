@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    {% include "header.html" %}
+<body>
+    {% include "user_link.html" %}
+    <h1>Create New Catalog</h1>
+    <form class="form-inline" method='POST' enctype='multipart/form-data' action='{{url_for('catalog.createNewCatalog')}}'>
+        <h3>New Catalog Name:</h3>
+        <input class="form-control" name='newCatalogName' type='text' />
+        <input class='btn btn-primary' type='submit' value='Submit'>
+    </form>
+    <a class='btn btn-default' href='{{url_for('catalog.showAllCatalogs')}}'>Cancel</a>
+</body>
+</html>

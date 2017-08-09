@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+    {% include "header.html" %}
+<body>
+    {% include "user_link.html" %}    
+    <a href='{{url_for('item.showAllItems', catalog_id = catalog.id)}}'>Back to items list</a>    
+    <h3><a href='{{url_for('item.showItem', catalog_id = catalog.id, item_id = item.id)}}'>{{item.name}}</a></h3>
+    <p>{{item.description}}</p>
+</body>
+</html>
